@@ -28,3 +28,13 @@ The slideshow will automatically launch at system boot, but you can start it man
 ```bash
 ./qiv_slideshow.sh
 ```
+
+## Bonus
+
+In order to add more photos to the system, maybe you want to access a shared drive (computer, server, NAS, etc.).
+
+Add this line in `/etc/fstab` to automatically mount a shared folder at system boot :
+
+```
+server_name:remote_folder /home/pi/shared_folder nfs defaults 0 0
+```
