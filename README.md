@@ -31,6 +31,8 @@ The slideshow will automatically launch at system boot, but you can start it man
 
 ## Bonus
 
+### Mount a shared drive
+
 In order to add more photos to the system, maybe you want to access a shared drive (computer, server, NAS, etc.).
 
 Add this line in `/etc/fstab` to automatically mount a shared folder at system boot :
@@ -38,3 +40,15 @@ Add this line in `/etc/fstab` to automatically mount a shared folder at system b
 ```
 server_name:remote_folder /home/pi/shared_folder nfs defaults 0 0
 ```
+
+### Copy distant photos
+
+If you have mounted a shared drive, you could like to copy some photos from the remote to the local system.
+
+For this, use a rsync command :
+
+```bash
+rsync -avz --exclude '*.NEF' --exclude '*.MOV' /home/pi/shared_folder/cats/ /home/pi/pics/cats/
+```
+
+This command copy all the photo from `/home/pi/shared_folder/cats/` to the local system, without the RAW and video files.
