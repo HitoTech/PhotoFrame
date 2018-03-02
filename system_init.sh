@@ -20,4 +20,10 @@ apt-get autoremove -y && \
 apt-get upgrade -y && \
 apt-get dist-upgrade -y && \
 
-apt-get install -y qiv
+apt-get install -y qiv && \
+
+# create the directory which will contains the pictures
+mkdir /home/pi/pics && \
+
+# config used to autostart the slideshow at Raspbian boot
+cp ./config_files/slideshow.desktop /home/pi/.config/autostart/slideshow.desktop
