@@ -23,7 +23,7 @@ apt-get dist-upgrade -y && \
 apt-get install -y qiv && \
 
 # create the directory which will contains the pictures
-mkdir /home/pi/pics && \
+mkdir -p /home/pi/pics && \
 
 # config used to autostart the slideshow at Raspbian boot
 cp ./config_files/slideshow.desktop /home/pi/.config/autostart/slideshow.desktop
