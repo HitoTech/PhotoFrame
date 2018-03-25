@@ -48,7 +48,7 @@ If you have mounted a shared drive, you could like to copy some photos from the 
 For this, use a rsync command :
 
 ```bash
-rsync -avz --exclude '*.NEF' --exclude '*.MOV' /home/pi/shared_folder/cats/ /home/pi/pics/cats/
+rsync -avz --exclude '*.NEF' --exclude '*.MOV' --exclude '*.m4v' --exclude '*.mp4' /home/pi/shared_folder/cats/ /home/pi/pics/cats/
 ```
 
 This command copy all the photo from `/home/pi/shared_folder/cats/` to the local system, without the RAW and video files.
@@ -70,3 +70,11 @@ find . -type f -name '*~' -exec rm -f '{}' \;
 ```
 
 The chmod is here because mogrify must have access to the photos. The third command is to remove photos in case mogrify has created copy of the resized images.
+
+### Remove @eaDir
+
+Il you copy your files from a Synology, there could be some folders named "@eaDir". You can remove them with this command :
+
+```bash
+find . -name "@eaDir" -type d -print |while read FILENAME; do rm -rf "${FILENAME}"; done
+```
