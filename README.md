@@ -58,3 +58,15 @@ This command copy all the photo from `/home/pi/shared_folder/cats/` to the local
 ```bash
 find . -name "*.JPG" -exec rename 's/.JPG$/.jpg/' {} \;
 ```
+
+### Resize photos
+
+If you want to resize all your photos to fit the size of your screen :
+
+```bash
+sudo chmod 777 *
+find . -name "*.jpg" -exec mogrify -resize 1400x800 {} +
+find . -type f -name '*~' -exec rm -f '{}' \;
+```
+
+The chmod is here because mogrify must have access to the photos. The third command is to remove photos in case mogrify has created copy of the resized images.
