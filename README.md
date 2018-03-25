@@ -52,3 +52,9 @@ rsync -avz --exclude '*.NEF' --exclude '*.MOV' /home/pi/shared_folder/cats/ /hom
 ```
 
 This command copy all the photo from `/home/pi/shared_folder/cats/` to the local system, without the RAW and video files.
+
+### Rename all .JPG files to .jpg
+
+```bash
+find . -name "*.JPG" -exec rename 's/.JPG$/.jpg/' {} \;
+```
